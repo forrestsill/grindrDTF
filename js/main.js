@@ -1,30 +1,17 @@
 $(document).ready(function() {
-  getLocation();
+
 
 });
 
+
+
 function getLocation() {
-  if (navigator.geolocation) {
 
-    navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
-
-    function success(pos) {
-      $("#finding-loc").text(pos.coords.latitude + ", " + pos.coords.longitude);
-    }
-
-    function fail(error) {
-      $("#finding-loc").text(error);
-      showLocSearch();
-    }
-
-  } else {
-    console.log("no");
-  }
 }
 
 function showLocSearch() {
-  // TODO: show form div
-
+  $("#finding-loc").css("display", "none");
+  $(".location-entry").css("display", "block");
 }
 
 function geocodeAddress(geocoder, resultsMap) {
@@ -32,7 +19,7 @@ function geocodeAddress(geocoder, resultsMap) {
   geocoder.geocode({'address' : userEntry}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       resultsMap.setCenter(results[0].geometry.location);
-      setMapOnAll(null);
+
       var marker = new google.maps.Marker({
         map: resultsMap,
         position: results[0].geometry.location
@@ -40,6 +27,14 @@ function geocodeAddress(geocoder, resultsMap) {
     } else {
       alert("Geocode unsuccessful: " + status);
     }
+  });
+}
+
+function geocodeCurrentLoc(geocoder, resultsMap, currentLoc) {
+  resultsMap.setCenter(currentLoc);
+  var marker = new google.maps.Marker({
+      map: resultsMap,
+      position: currentLoc
   });
 }
 
@@ -51,9 +46,29 @@ function initMap() {
   var geocoder = new google.maps.Geocoder();
   document.getElementById("loc-search-submit").addEventListener('click', function() {
     geocodeAddress(geocoder, map);
+    $("#map-canvas").show();
   });
-}
 
-function clearMarkers() {
-  setMapOnAll(null);
+  if (navigator.geolocation) {
+
+
+    var currentLoc = navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+
+      console.log(currentLoc);
+
+    function success(pos) {
+      $("#finding-loc").css("display", "none");
+      geocodeCurrentLoc(geocoder, map, currentLoc);
+      //$("#finding-loc").text(pos.coords.latitude + ", " + pos.coords.longitude);
+      $("#map-canvas").show();
+    }
+
+    function fail(error) {
+      //$("#finding-loc").text(error);
+      showLocSearch();
+    }
+
+  } else {
+    showLocSearch();
+  }
 }
