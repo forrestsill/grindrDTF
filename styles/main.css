@@ -1,0 +1,26 @@
+body {
+  padding-top: 20px;
+}
+
+#map-canvas {
+  height: 300px;
+}
+.welcome-screen {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.location-entry button{
+    border:0;
+    background:transparent;
+}
+
+.location-entry .input-group-addon{
+    background: white !important;
+    padding-bottom: 5px;
+}
+.location-entry .form-control{
+	border-right:0;
+	box-shadow:0 0 0;
+	border-color:#ccc;
+}
