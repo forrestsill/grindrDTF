@@ -3,32 +3,62 @@ $(document).ready(function() {
 
 });
 
-function listResults(loc) {
+function listResults(loc, resultsMap) {
   $.getJSON("chicago_clinics.json", function(data){
     var clinics = data['clinics'];
     $(clinics).each(function(i, d) {
-      $("#list-container").append("<div class='float-left'>\
-        <div class='clinic-container'>\
+      $("#list-container").append("<hr><div class='" + " clinic-container clinic-container-" + i + "'>\
+        <div class='float-left'>\
           <div class='name-container'>\
-            <span class='ordinal'>" + (i + 1) + ". </span><span class='clinic-name'>Clinic name</span>\
+            <span class='ordinal'>" + (i + 1) + ". </span><span class='clinic-name'>" + d['name'] + "</span>\
           </div>\
           <div class='address-container'>\
-            <span class='address'>Address</span>\
+            <span class='address'>" + d['address'] + "</span>\
           </div>\
           <div class='appt-container'>\
             <span class='appt-text'>Next availible appt text.</span>\
-        </div>\
+          </div>\
       </div>\
-    </div>\
     <div class='float-right'>\
       <div class='icon-container'>\
         <img src='http://placehold.it/70x70' alt''>\
       </div>\
-      <div class='dist-container'>\
-        <span class='dist'>distance</div>\
-      </div>")
+        <div class='dist-container'>\
+          <span class='dist-text'></span>\
+        </div>\
+    </div>");
+      getDist(loc, d['address'], i, resultsMap);
     });
   });
+  $("footer").show();
+}
+
+function getDist(currentLoc, clinicAddress, i, resultsMap) {
+  new google.maps.Geocoder().geocode({'address' : clinicAddress}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+
+      var marker = new google.maps.Marker({
+          position: results[0].geometry.location,
+          label: i + 1 + "",
+          map: resultsMap
+
+      });
+      //marker.addListener('click', toggleBounce);
+
+      var service = new google.maps.DistanceMatrixService();
+      return service.getDistanceMatrix(
+        {
+          origins: [results[0].geometry.location],
+          destinations: [currentLoc],
+          travelMode: google.maps.TravelMode.DRIVING,
+          unitSystem: google.maps.UnitSystem.IMPERIAL
+        }, function(response, status) {
+          $(".clinic-container-" + i + ">.float-right>.dist-container>.dist-text").text(response['rows'][0]['elements'][0]['distance']['text']);
+        });
+    } else {
+      alert("Geocode unsuccessful: " + status);
+    }
+  })
 }
 
 function showLocSearch() {
@@ -41,12 +71,8 @@ function geocodeAddress(geocoder, resultsMap) {
   geocoder.geocode({'address' : userEntry}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       resultsMap.setCenter(results[0].geometry.location);
-      console.log(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-        map: resultsMap,
-        position: results[0].geometry.location
-      });
-      listResults(results[0].geometry.location);
+      $("#map-canvas").css('visibility', 'visible');
+      listResults(results[0].geometry.location, resultsMap);
     } else {
       alert("Geocode unsuccessful: " + status);
     }
@@ -54,13 +80,9 @@ function geocodeAddress(geocoder, resultsMap) {
 }
 
 function geocodeCurrentLoc(geocoder, resultsMap, currentLoc) {
-  var marker = new google.maps.Marker({
-      map: resultsMap,
-      position: currentLoc
-  });
-  google.maps.event.trigger(resultsMap, 'resize');
   resultsMap.setCenter(currentLoc);
-  listResults(currentLoc);
+  $("#map-canvas").css('visibility', 'visible');
+  listResults(currentLoc, resultsMap);
 }
 
 function initMap() {
@@ -71,28 +93,20 @@ function initMap() {
   var geocoder = new google.maps.Geocoder();
   $("#loc-search-submit").on('click', function() {
     geocodeAddress(geocoder, map);
-    $("#map-canvas").css("display", "block");
   });
   $("#loc-input").keypress(function (e) {
     if (e.which == 13) {
       geocodeAddress(geocoder, map);
-      $("#map-canvas").css("display", "block");
     }
   });
 
   if (navigator.geolocation) {
 
-
     var currentLoc = navigator.geolocation.getCurrentPosition(success, fail);
-
-    console.log(currentLoc);
 
     function success(pos) {
       $("#finding-loc").css("display", "none");
       geocodeCurrentLoc(geocoder, map, new google.maps.LatLng(pos.coords.latitude,pos.coords.longitude));
-
-      $("#map-canvas").css("display", "block");
-
     }
 
     function fail(error) {

@@ -1,8 +1,45 @@
 {"clinics" : [
   {
     "name":"Clinic name 1",
-    "address": "6031 S Ellis Ave, Chicago",
+    "address": "923 E 61st St, Chicago",
+    "services": ["service1", "service2", "service3"],
+    "appts": ["2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z"]
+  },
+  {
+    "name":"Clinic name 2",
+    "address": "6143 S Langley Ave, Chicago",
+    "services": ["service1", "service2", "service3"],
+    "appts": ["2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z"]
+  },
+  {
+    "name":"Clinic name 3",
+    "address": "5841 S Maryland Ave, Chicago",
+    "services": ["service1", "service2", "service3"],
+    "appts": ["2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z"]
+  },
+  {
+    "name":"Clinic name 4",
+    "address": "5807 S Woodlawn Ave, Chicago",
+    "services": ["service1", "service2", "service3"],
+    "appts": ["2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z"]
+  },
+  {
+    "name":"Clinic name 5",
+    "address": "966 E 62nd St, Chicago",
+    "services": ["service1", "service2", "service3"],
+    "appts": ["2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z"]
+  },
+  {
+    "name":"Clinic name 6",
+    "address": "6100 S Kimbark Ave, Chicago",
+    "services": ["service1", "service2", "service3"],
+    "appts": ["2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z"]
+  },
+  {
+    "name":"Clinic name 7",
+    "address": "6301 S Ellis Ave, Chicago",
     "services": ["service1", "service2", "service3"],
     "appts": ["2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z"]
   }
+
 ]}

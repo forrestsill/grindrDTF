@@ -31,7 +31,7 @@ body {
 }
 
 #map-canvas {
-  display: none;
+  visibility: hidden;
 }
 
 .float-left {
@@ -46,17 +46,26 @@ body {
   font-weight: bold;
 }
 
-.address-container {
+.address-container, .dist-container, footer {
   color: grey;
   font-size: .85em;
 }
 
+footer {
+  display: none;
+  margin-top: 30px;
+  text-align: center;
+}
+
 .appt-container {
   margin-top: 20px;
-
 }
 
 .dist-container {
   text-align: right;
+  margin-top: 5px;
+}
 
+.clinic-container {
+  overflow: auto;
 }
