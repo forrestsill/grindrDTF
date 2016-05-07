@@ -1,0 +1,8 @@
+{"clinics" : [
+  {
+    "name":"Clinic name 1",
+    "address": "6031 S Ellis Ave, Chicago",
+    "services": ["service1", "service2", "service3"],
+    "appts": ["2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z", "2012-04-23T18:25:43.511Z"]
+  }
+]}

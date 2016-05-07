@@ -18,6 +18,7 @@ body {
 .location-entry .input-group-addon{
     background: white !important;
     padding-bottom: 5px;
+    width: 65px;
 }
 .location-entry .form-control{
 	border-right:0;
@@ -31,4 +32,31 @@ body {
 
 #map-canvas {
   display: none;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.name-container {
+  font-weight: bold;
+}
+
+.address-container {
+  color: grey;
+  font-size: .85em;
+}
+
+.appt-container {
+  margin-top: 20px;
+
+}
+
+.dist-container {
+  text-align: right;
+
 }
