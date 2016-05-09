@@ -1,71 +1,72 @@
 body {
   padding-top: 20px;
 }
-
 #map-canvas {
   height: 300px;
 }
 .welcome-screen {
-  padding: 40px 15px;
+  padding: 20px 15px;
   text-align: center;
 }
-
-.location-entry button{
-    border:0;
-    background:transparent;
+.location-entry button {
+  border: 0;
+  background: transparent;
 }
-
-.location-entry .input-group-addon{
-    background: white !important;
-    padding-bottom: 5px;
-    width: 65px;
+.location-entry .input-group-addon {
+  background: white !important;
+  padding-bottom: 5px;
+  width: 65px;
 }
-.location-entry .form-control{
-	border-right:0;
-	box-shadow:0 0 0;
-	border-color:#ccc;
+.location-entry .form-control {
+  border-right: 0;
+  box-shadow: 0 0 0;
+  border-color: #ccc;
 }
-
 .location-entry {
   display: none;
 }
-
 #map-canvas {
   visibility: hidden;
 }
-
 .float-left {
   float: left;
 }
-
 .float-right {
   float: right;
 }
-
 .name-container {
   font-weight: bold;
 }
-
-.address-container, .dist-container, footer {
+.address-container,
+.dist-container,
+footer {
   color: grey;
   font-size: .85em;
 }
-
 footer {
   display: none;
   margin-top: 30px;
   text-align: center;
 }
-
 .appt-container {
   margin-top: 20px;
 }
-
+.appt-text {
+  color: #19C519;
+  font-size: 1em;
+}
 .dist-container {
   text-align: right;
   margin-top: 5px;
 }
-
 .clinic-container {
   overflow: auto;
+}
+.times {
+  height: 120px;
+}
+.time {
+  margin-right: 10px;
+  margin-top: 5px;
+  width: 100%;
 }
