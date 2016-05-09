@@ -249,5 +249,5 @@ function aiSecretary(currentDate, appts) {
     }
     return ">" + withinMonth + " appointment" + apptStr + " available within a month."
   }
-  return "style=color:red>All booked up."
+  return "style=color:red>No appointments available soon."
 }

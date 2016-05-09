@@ -1,43 +1,43 @@
 {
   "clinics": [
     {
-      "name": "Clinic name 4",
+      "name": "Bernard Mitchell Hospital",
       "address": "5807 S Woodlawn Ave, Chicago",
       "type": ["hospital"],
       "appts": ["2016-05-12T18:25:43", "2016-06-26T18:55:43.511Z", "2016-07-01T16:00:00.511Z"]
   },
     {
-      "name": "Clinic name 6",
+      "name": "Planned Parenthood",
       "address": "6100 S Kimbark Ave, Chicago",
       "type": ["planned-parenthood"],
       "appts": ["2016-05-08T14:00:43", "2016-05-08T15:00:43", "2016-05-09T10:30:00"]
   },
     {
-      "name": "Clinic name 5",
+      "name": "The Ryan Center",
       "address": "966 E 62nd St, Chicago",
       "type": ["clinic"],
       "appts": ["2016-05-20T14:00:43", "2016-05-21T15:00:43.511Z", "2016-05-24T10:30:00.511Z"]
   },
     {
-      "name": "Clinic name 1",
+      "name": "Planned Parenthood",
       "address": "923 E 61st St, Chicago",
       "type": ["planned-parenthood"],
       "appts": ["2016-06-01T20:00:43", "2016-06-13T18:15:43.511Z", "2016-07-01T16:00:00.511Z"]
   },
     {
-      "name": "Clinic name 7",
+      "name": "Woodlawn Adult Health Center",
       "address": "6301 S Ellis Ave, Chicago",
       "type": ["clinic"],
       "appts": ["2016-08-23T18:25:43", "2016-08-26T18:55:43.511Z", "2016-09-01T16:00:00.511Z"]
   },
     {
-      "name": "Clinic name 3",
+      "name": "Mount Sinai Hospital",
       "address": "5841 S Maryland Ave, Chicago",
       "type": ["hospital"],
       "appts": ["2016-06-23T16:15:43", "2016-06-29T13:45:43.511Z", "2016-07-01T16:00:00.511Z"]
   },
     {
-      "name": "Clinic name 2",
+      "name": "Planned Parenthood",
       "address": "6143 S Langley Ave, Chicago",
       "type": ["planned-parenthood"],
       "appts": ["2016-05-10T16:00:43", "2016-05-10T17:00:43.511Z", "2016-05-10T18:30:00.511Z"]
